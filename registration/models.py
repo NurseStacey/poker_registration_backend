@@ -7,7 +7,7 @@ class VenueModel(models.Model):
 class GameModel(models.Model):
     venue=models.ForeignKey(VenueModel, null=True, on_delete=models.PROTECT)
     event_date=models.DateField(default=timezone.now)
-    event_time=models.CharField(null=True)
+    event_time=models.CharField(max_length=10, null=True)
     event_title=models.CharField(max_length=100, default='')
     completed=models.BooleanField(default=False)
     
