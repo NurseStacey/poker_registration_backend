@@ -59,7 +59,9 @@ class GameAPI(APIView):
 class DeleteGameAPI(APIView):
     def delete(self, request, id, *args, **kwargs):
         try:
-            GameModel.objects.get(id=id).delete()
+            this_game=GameModel.objects.get(id=id)
+            this_game.game_roster.all().delete()
+            this_game.delete()
             return Response({'status':'OK'},status=status.HTTP_200_OK)
         except Exception as e:
             print(e)

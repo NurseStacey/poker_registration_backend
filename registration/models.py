@@ -13,6 +13,6 @@ class GameModel(models.Model):
     
 
 class RosterModel(models.Model):
-    game=models.ForeignKey(GameModel, null=True, default=None, on_delete=models.PROTECT)
+    game=models.ForeignKey(GameModel, null=True, default=None, on_delete=models.PROTECT, related_name='game_roster')
     player=models.CharField(null=True, max_length=50, default='')
     place=models.IntegerField(default=0)
