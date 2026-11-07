@@ -3,7 +3,8 @@ from .views import *
 
 urlpatterns = [
     path('venues/', VenueAPI.as_view(), name='add_venue'),
-    path('games/', GameAPI.as_view(), name='games'),    
+    path('games/', GameAPI.as_view(), name='games'),  
+    path('delete-game/<int:id>/', DeleteGameAPI.as_view(), name='delete-game'),
     path('games-for-registration/', GameForRegistrationAPI.as_view(), name='games-for-registration'),
     path('sign-up/', GameRegisrtationAPI.as_view(), name='sign-up'),     
     path('get-roster/<int:id>/', RosterAPI.as_view(), name='sign-up'),
