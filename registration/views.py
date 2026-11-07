@@ -56,6 +56,16 @@ class GameAPI(APIView):
 
         return Response({'status':'Problem'}, status =status.HTTP_400_BAD_REQUEST )      
 
+class DeleteGameAPI(APIView):
+    def delete(self, request, id, *args, **kwargs):
+        try:
+            GameModel.objects.get(id=id).delete()
+            return Response({'status':'OK'},status=status.HTTP_200_OK)
+        except Exception as e:
+            print(e)
+
+        return Response({'status':'Problem'}, status =status.HTTP_400_BAD_REQUEST )                  
+
 class GameForRegistrationAPI(APIView):
     def get(self, request, *args, **kwargs):
         try:
